@@ -2,7 +2,7 @@
 
 **A multi-layer pipeline for collecting, normalizing, and unifying US local election results from heterogeneous sources.**
 
-📖 **[Read the full documentation →](./docs/src/introduction.md)**
+📖 **[Read the full documentation →](https://cgorski.github.io/election-aggregation/)**
 
 ---
 
@@ -32,7 +32,7 @@ The ordering is strict: **Clean → Embed → Match → Canonicalize.** You cann
 
 - **It does not store election data.** Data files are large and published by their respective sources. This project tells you where to get the data, documents every source schema, and provides tools to process it. You download the data yourself.
 - **It is not a real-time election tracker.** We process official/certified results, not live feeds.
-- **It does not claim perfect accuracy.** Entity resolution is probabilistic. Known limitations are [documented](./docs/src/trust/limitations.md). Every match decision is auditable.
+- **It does not claim perfect accuracy.** Entity resolution is probabilistic. Known limitations are [documented](https://cgorski.github.io/election-aggregation/trust/limitations.html). Every match decision is auditable.
 
 ## What you can answer
 
@@ -47,7 +47,7 @@ With data from MEDSL (all 50 states, 2018–2022), NC SBE (2006–2024), OpenEle
 | Who has served longest on a local body in NC? | George Dunlap — Mecklenburg County Commissioner, 6 cycles (2014–2024) |
 | How many unique elected offices exist? | 8,387+ distinct names; 4,995 exist in exactly one county |
 
-See the [full list of answerable and not-yet-answerable questions](./docs/src/introduction.md#what-you-can-answer-today) in the documentation.
+See the [full list of answerable and not-yet-answerable questions](https://cgorski.github.io/election-aggregation/introduction.html#what-you-can-answer-today) in the documentation.
 
 ## Quick start
 
@@ -66,7 +66,7 @@ cargo install --path .
 
 ### Download data
 
-This project does not ship with data. It tells you where to get data, documents every source schema, and provides tools to process it. Download sources following the instructions in the [data sources documentation](./docs/src/sources/overview.md), or use the quick-start script:
+This project does not ship with data. It tells you where to get data, documents every source schema, and provides tools to process it. Download sources following the instructions in the [data sources documentation](https://cgorski.github.io/election-aggregation/sources/overview.html), or use the quick-start script:
 
 ```sh
 # MEDSL 2022 — all 50 states (precinct-level, ~2 GB compressed)
@@ -82,7 +82,7 @@ curl -L -o local-data/sources/ncsbe/2022/results_pct_20221108.zip \
   "https://s3.amazonaws.com/dl.ncsbe.gov/ENRS/2022_11_08/results_pct_20221108.zip"
 ```
 
-See [Download Instructions](./docs/src/usage/download.md) for the full set of sources including MEDSL 2018/2020, NC SBE 2006–2024, OpenElections, VEST shapefiles, Census FIPS, and FEC candidate files.
+See [Download Instructions](https://cgorski.github.io/election-aggregation/usage/download.html) for the full set of sources including MEDSL 2018/2020, NC SBE 2006–2024, OpenElections, VEST shapefiles, Census FIPS, and FEC candidate files.
 
 ### Run the pipeline
 
@@ -142,7 +142,7 @@ for line in open('local-data/processed/l4_canonical/exports/flat_export.jsonl'):
 
 > **Note:** During development we used [DuckDB](https://duckdb.org) to run ad-hoc SQL over raw source CSVs for exploratory analysis. DuckDB is a convenient tool for querying large JSONL or CSV files with SQL, but it is not part of the pipeline architecture. The pipeline's source of truth is always the JSONL files in the layer directories.
 
-See [Recipes](./docs/src/usage/recipes.md) for ready-to-use queries against the pipeline output.
+See [Recipes](https://cgorski.github.io/election-aggregation/usage/recipes.html) for ready-to-use queries against the pipeline output.
 
 ## Data sources
 
@@ -150,13 +150,13 @@ We process data from these sources. We do not store or redistribute their data.
 
 | Source | Coverage | Format | Docs |
 |--------|----------|--------|------|
-| [MEDSL](https://dataverse.harvard.edu/dataverse/electionscience) | 50 states + DC, 2018/2020/2022 | CSV (25 cols) | [→](./docs/src/sources/medsl.md) |
-| [NC SBE](https://www.ncsbe.gov/results-data) | NC, 2006–2024 | TSV (15 cols) | [→](./docs/src/sources/ncsbe.md) |
-| [OpenElections](https://openelections.net) | ~8 states, varies | CSV (7+ cols) | [→](./docs/src/sources/openelections.md) |
-| [Clarity/Scytl](https://results.enr.clarityelections.com) | ~1,000+ jurisdictions | XML | [→](./docs/src/sources/clarity.md) |
-| [VEST](https://dataverse.harvard.edu/dataverse/electionscience) | 50 states (shapefiles) | SHP/DBF | [→](./docs/src/sources/vest.md) |
-| [Census Bureau](https://www2.census.gov/geo/docs/reference/codes2020/) | National FIPS reference | TXT | [→](./docs/src/sources/census.md) |
-| [FEC](https://www.fec.gov/data/browse-data/?tab=bulk-data) | Federal candidates | TXT | [→](./docs/src/sources/fec.md) |
+| [MEDSL](https://dataverse.harvard.edu/dataverse/electionscience) | 50 states + DC, 2018/2020/2022 | CSV (25 cols) | [→](https://cgorski.github.io/election-aggregation/sources/medsl.html) |
+| [NC SBE](https://www.ncsbe.gov/results-data) | NC, 2006–2024 | TSV (15 cols) | [→](https://cgorski.github.io/election-aggregation/sources/ncsbe.html) |
+| [OpenElections](https://openelections.net) | ~8 states, varies | CSV (7+ cols) | [→](https://cgorski.github.io/election-aggregation/sources/openelections.html) |
+| [Clarity/Scytl](https://results.enr.clarityelections.com) | ~1,000+ jurisdictions | XML | [→](https://cgorski.github.io/election-aggregation/sources/clarity.html) |
+| [VEST](https://dataverse.harvard.edu/dataverse/electionscience) | 50 states (shapefiles) | SHP/DBF | [→](https://cgorski.github.io/election-aggregation/sources/vest.html) |
+| [Census Bureau](https://www2.census.gov/geo/docs/reference/codes2020/) | National FIPS reference | TXT | [→](https://cgorski.github.io/election-aggregation/sources/census.html) |
+| [FEC](https://www.fec.gov/data/browse-data/?tab=bulk-data) | Federal candidates | TXT | [→](https://cgorski.github.io/election-aggregation/sources/fec.html) |
 
 ## Storage format
 
@@ -178,19 +178,19 @@ The core design principle is **deterministic first, embeddings for retrieval, LL
 - **L2→L3** involves LLM calls for ambiguous entity matches. Every decision is stored with the full prompt, response, reasoning, and token cost. Decisions can be replayed deterministically from the log.
 - **L3→L4** is deterministic given L3. Canonical name selection follows a fixed algorithm (most complete name from most authoritative source).
 
-Every record at every layer carries a SHA-256 hash chain back to L0. A [verification algorithm](./docs/src/architecture/claim-verification.md) at L4 can trace any claim — "Timothy Lance won 303 votes in precinct P17" — through every layer's JSONL files to the original NC SBE tab-delimited text file.
+Every record at every layer carries a SHA-256 hash chain back to L0. A [verification algorithm](https://cgorski.github.io/election-aggregation/architecture/provenance.html) at L4 can trace any claim — "Timothy Lance won 303 votes in precinct P17" — through every layer's JSONL files to the original NC SBE tab-delimited text file.
 
-For the full architecture, read [Design Principles](./docs/src/architecture/principles.md) and [The Five-Layer Pipeline](./docs/src/architecture/pipeline-overview.md).
+For the full architecture, read [Design Principles](https://cgorski.github.io/election-aggregation/architecture/principles.html) and [The Five-Layer Pipeline](https://cgorski.github.io/election-aggregation/architecture/pipeline-overview.html).
 
 ## The hard problems
 
 What makes this project interesting (and difficult) is documented in detail:
 
-- **[Name Normalization](./docs/src/hard-problems/name-normalization.md)** — `MICHAEL "STEVE" HUBER` vs `Michael (Steve) Huber` vs `M. Steve Huber`
-- **[Entity Resolution](./docs/src/hard-problems/entity-resolution.md)** — Is `Charlie Crist` the same person as `CRIST, CHARLES JOSEPH`? (Yes — embedding score 0.451, LLM confidence 0.95)
-- **[Office Classification](./docs/src/hard-problems/office-classification.md)** — 8,387 unique office names across 50 states, including "County Judge" which means different things in Texas vs everywhere else
-- **[Non-Candidate Records](./docs/src/hard-problems/non-candidates.md)** — "Registered Voters", "BLANK", "TOTAL VOTES", "OverVotes" hiding inside candidate result files
-- **[Cross-Source Reconciliation](./docs/src/hard-problems/cross-source.md)** — MEDSL and NC SBE overlap on 640 NC contests; 90.5% have exactly matching vote totals, 63% have different candidate name formatting
+- **[Name Normalization](https://cgorski.github.io/election-aggregation/hard-problems/name-normalization.html)** — `MICHAEL "STEVE" HUBER` vs `Michael (Steve) Huber` vs `M. Steve Huber`
+- **[Entity Resolution](https://cgorski.github.io/election-aggregation/hard-problems/entity-resolution.html)** — Is `Charlie Crist` the same person as `CRIST, CHARLES JOSEPH`? (Yes — embedding score 0.451, LLM confidence 0.95)
+- **[Office Classification](https://cgorski.github.io/election-aggregation/hard-problems/office-classification.html)** — 8,387 unique office names across 50 states, including "County Judge" which means different things in Texas vs everywhere else
+- **[Non-Candidate Records](https://cgorski.github.io/election-aggregation/hard-problems/non-candidates.html)** — "Registered Voters", "BLANK", "TOTAL VOTES", "OverVotes" hiding inside candidate result files
+- **[Cross-Source Reconciliation](https://cgorski.github.io/election-aggregation/hard-problems/cross-source.html)** — MEDSL and NC SBE overlap on 640 NC contests; 90.5% have exactly matching vote totals, 63% have different candidate name formatting
 
 ## Project structure
 
@@ -234,16 +234,16 @@ election-aggregation/
 
 ## Documentation
 
-The [mdbook documentation](./docs/src/introduction.md) is both the user guide and the implementation spec. It covers:
+The [mdbook documentation](https://cgorski.github.io/election-aggregation/) is both the user guide and the implementation spec. It covers:
 
-- **[Part I: The Problem](./docs/src/problem/why-hard.md)** — Why local election data is fragmented and what questions we're trying to answer
-- **[Part II: Data Sources](./docs/src/sources/overview.md)** — Every source: schema, download commands, quirks, coverage gaps
-- **[Part III: The Hard Problems](./docs/src/hard-problems/name-normalization.md)** — Name normalization, entity resolution, office classification with real examples
-- **[Part IV: Architecture](./docs/src/architecture/principles.md)** — The five-layer pipeline, hash chains, embedding strategy, LLM integration
-- **[Part V: Unified Schema](./docs/src/schema/overview.md)** — The record format, field by field
-- **[Part VI: Rust Implementation](./docs/src/rust/overview.md)** — Types, traits, module structure
-- **[Part VII: Using the Data](./docs/src/usage/getting-started.md)** — Download, process, query JSONL output, with ten copy-paste recipes
-- **[Part VIII: Trust and Reproducibility](./docs/src/trust/two-audiences.md)** — Confidence levels, citations, error reporting, known limitations
+- **[Part I: The Problem](https://cgorski.github.io/election-aggregation/problem/why-hard.html)** — Why local election data is fragmented and what questions we're trying to answer
+- **[Part II: Data Sources](https://cgorski.github.io/election-aggregation/sources/overview.html)** — Every source: schema, download commands, quirks, coverage gaps
+- **[Part III: The Hard Problems](https://cgorski.github.io/election-aggregation/hard-problems/name-normalization.html)** — Name normalization, entity resolution, office classification with real examples
+- **[Part IV: Architecture](https://cgorski.github.io/election-aggregation/architecture/principles.html)** — The five-layer pipeline, hash chains, embedding strategy, LLM integration
+- **[Part V: Unified Schema](https://cgorski.github.io/election-aggregation/schema/overview.html)** — The record format, field by field
+- **[Part VI: Rust Implementation](https://cgorski.github.io/election-aggregation/rust/overview.html)** — Types, traits, module structure
+- **[Part VII: Using the Data](https://cgorski.github.io/election-aggregation/usage/getting-started.html)** — Download, process, query JSONL output, with copy-paste recipes
+- **[Part VIII: Trust and Reproducibility](https://cgorski.github.io/election-aggregation/trust/two-audiences.html)** — Confidence levels, error reporting, known limitations
 
 Build and serve the docs locally:
 
@@ -259,7 +259,7 @@ There are two audiences with different trust needs:
 
 **Consumers** (journalists, researchers, government staff) see source names, confidence levels, citations, and methodology documentation. They never see hashes, embeddings, or layer numbers. Their trust interface is: *"This number came from NC State Board of Elections certified data, retrieved March 2026."*
 
-See [The Two Audiences](./docs/src/trust/two-audiences.md) for the full trust model.
+See [The Two Audiences](https://cgorski.github.io/election-aggregation/trust/two-audiences.html) for the full trust model.
 
 ## Known limitations
 
@@ -272,17 +272,17 @@ We are honest about what we cannot do yet:
 - **Ranked-choice voting** is not yet supported in the schema
 - **ALGED** (the only local-election-focused academic database) is not yet integrated due to access issues
 
-See [Known Limitations](./docs/src/trust/limitations.md) for the complete list.
+See [Known Limitations](https://cgorski.github.io/election-aggregation/trust/limitations.html) for the complete list.
 
 ## Contributing
 
 This project is in early development. The mdbook documentation is the spec — if you want to understand what needs to be built, read the book. If you want to contribute:
 
-1. **Add a data source parser** — Implement the `SourceParser` trait for a new source. See [Implementing a New Source](./docs/src/rust/implementing-source.md).
-2. **Improve office classification** — Add keywords to the tier 1 classifier or regex patterns to tier 2. See [The Four-Tier Classifier](./docs/src/hard-problems/office-four-tiers.md).
-3. **Expand the nickname dictionary** — Add name mappings. See [The Nickname Dictionary](./docs/src/hard-problems/names-dictionary.md).
+1. **Add a data source parser** — Implement the `SourceParser` trait for a new source. See [The SourceParser Trait](https://cgorski.github.io/election-aggregation/rust/source-parser-trait.html).
+2. **Improve office classification** — Add keywords to the tier 1 classifier or regex patterns to tier 2. See [The Four-Tier Classifier](https://cgorski.github.io/election-aggregation/hard-problems/office-four-tiers.html).
+3. **Expand the nickname dictionary** — Add name mappings. See [The Nickname Dictionary](https://cgorski.github.io/election-aggregation/hard-problems/names-dictionary.html).
 4. **Report data quality issues** — If you find bad data, wrong entity matches, or misclassified offices, open an issue with the specific records.
-5. **Write recipes** — Add queries that answer interesting questions using `jq`, Python, or other tools against the JSONL output. See [Recipes](./docs/src/usage/recipes.md).
+5. **Write recipes** — Add queries that answer interesting questions using `jq`, Python, or other tools against the JSONL output. See [Recipes](https://cgorski.github.io/election-aggregation/usage/recipes.html).
 
 ## License
 
