@@ -1,0 +1,43 @@
+# Rust build artifacts
+/target
+
+# Virtual environment (Python, used for prototyping)
+.venv/
+
+# Temporary experiment files
+tmp/
+
+# mdbook build output (build from source with `cd docs && mdbook build`)
+docs/book/
+
+# Local data directory (large files, not stored in repo)
+# See docs/src/sources/ for data source documentation
+# and download instructions
+local-data/
+
+# Legacy prototype code and design docs (absorbed into mdbook)
+legacy/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Data artifacts
+*.faiss
+*.npy
+*.duckdb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

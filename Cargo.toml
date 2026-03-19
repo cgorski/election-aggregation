@@ -1,0 +1,27 @@
+[package]
+name = "election-aggregation"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.93"
+description = "A multi-layer pipeline for collecting, normalizing, and unifying US local election results from heterogeneous sources"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/cgorski/election-aggregation"
+keywords = ["elections", "data-pipeline", "entity-resolution", "local-government"]
+categories = ["command-line-utilities", "data-structures"]
+
+[lib]
+name = "election_aggregation"
+path = "src/lib.rs"
+
+[[bin]]
+name = "election-aggregation"
+path = "src/main.rs"
+
+[dependencies]
+
+[dev-dependencies]
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

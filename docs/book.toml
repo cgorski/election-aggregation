@@ -1,0 +1,26 @@
+[book]
+title = "Election Aggregation"
+description = "A multi-layer pipeline for collecting, normalizing, and unifying US local election results from heterogeneous sources"
+authors = ["Chris A Gorski <cgorski@cgorski.org>"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+default-theme = "rust"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/cgorski/election-aggregation"
+edit-url-template = "https://github.com/cgorski/election-aggregation/edit/main/docs/{path}"
+site-url = "/election-aggregation/"
+no-section-label = false
+
+[output.html.search]
+enable = true
+limit-results = 30
+
+[output.html.fold]
+enable = true
+level = 1
